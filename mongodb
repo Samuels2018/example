@@ -1,0 +1,36 @@
+Check your mongodb version:
+
+~$ mongo --version
+MongoDB shell version v4.0.5
+git version: 3739429dd92b92d1b0ab120911a23d50bf03c412
+OpenSSL version: OpenSSL 1.0.2g  1 Mar 2016
+allocator: tcmalloc
+modules: none
+build environment:
+    distmod: ubuntu1604
+    distarch: x86_64
+    target_arch: x86_64
+
+Check if the service is running:
+
+~$ systemctl status mongod.service
+● mongod.service - MongoDB Database Server
+   Loaded: loaded (/lib/systemd/system/mongod.service; enabled; vendor preset: enabled)
+   Active: active (running) since Mon 2019-01-21 00:33:51 MST; 7s ago
+     Docs: https://docs.mongodb.org/manual
+ Main PID: 2906 (mongod)
+   CGroup: /system.slice/mongod.service
+           └─2906 /usr/bin/mongod --config /etc/mongod.conf
+
+Ubuntu 18.04 and MongoDB 4.0
+
+MongoDB 4.0 is shown as stable where 4.1 is as unstable at the moment.
+
+First, remove MongoDB from previous if installed:
+
+sudo apt remove --autoremove mongodb-org
+
+Remove any mongodb repo list files:
+
+sudo rm /etc/apt/sources.list.d/mongodb*.list
+sudo apt update
